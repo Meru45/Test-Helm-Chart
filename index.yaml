@@ -3,9 +3,9 @@ entries:
   helm-test-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-12-30T17:50:56.627377+05:30"
+    created: "2025-12-30T17:54:09.344276+05:30"
     description: A Helm chart for deploying a bun application on Kubernetes
-    digest: 251848fe184d08203f2c1c1eb23ccd050fbde5c824635369b190b55cc18790c2
+    digest: 1443a8448afac6da10974afaef5e727364f10277edac1fbd61722bdc58422aef
     keywords:
     - nodejs
     - application
@@ -17,4 +17,4 @@ entries:
     urls:
     - https://meru45.github.io/Test-Helm-Chart/helm-test-app-1.0.0.tgz
     version: 1.0.0
-generated: "2025-12-30T17:50:56.623064+05:30"
+generated: "2025-12-30T17:54:09.342291+05:30"
