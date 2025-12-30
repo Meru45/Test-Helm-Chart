@@ -1,0 +1,104 @@
+# Default values for helm-test-app
+
+# Namespace configuration
+namespace:
+  create: true
+  name: helm-namespace
+
+# Application environment
+env: dev
+
+# Number of replicas
+replicas: 3
+
+# Image configuration
+image:
+  repository: meru45/helm-argocd-app
+  tag: "1"
+  pullPolicy: IfNotPresent
+
+# Service Account
+serviceAccount:
+  create: false
+  name: ""
+
+# Service configuration
+service:
+  type: NodePort
+  port: 4000
+  nodePort: 30008
+
+# ConfigMap data
+configmap:
+  data:
+    port: 4000
+    user_name: Mayur
+    email: mayur@scogo.ai
+
+# Secret data (base64 encoded)
+secrets:
+  data:
+    pass: U3VwZXJTZWNyZXRQYXNzQDExMjIzMwo=
+    client_id: Nzc3LTg4OC05OTktMzMzCg==
+
+# Resource limits and requests
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# Liveness probe configuration
+livenessProbe:
+  enabled: true
+  path: /health
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 3
+
+# Readiness probe configuration
+readinessProbe:
+  enabled: true
+  path: /ready
+  initialDelaySeconds: 10
+  periodSeconds: 5
+  timeoutSeconds: 3
+  successThreshold: 1
+  failureThreshold: 3
+
+# Startup probe configuration
+startupProbe:
+  enabled: true
+  path: /health
+  initialDelaySeconds: 0
+  periodSeconds: 10
+  timeoutSeconds: 3
+  successThreshold: 1
+  failureThreshold: 30
+
+# Node selector for pod assignment
+nodeSelector: {}
+
+# Tolerations for pod assignment
+tolerations: []
+
+# Affinity for pod assignment
+affinity: {}
+
+# Volume mounts (if needed for writable directories)
+volumeMounts: []
+  # - name: tmp
+  #   mountPath: /tmp
+  # - name: cache
+  #   mountPath: /app/.cache
+
+# Volumes (if needed for writable directories)
+volumes: []
+  # - name: tmp
+  #   emptyDir: {}
+  # - name: cache
+  #   emptyDir: {}
